@@ -1,0 +1,10 @@
+{
+    "cache_config":{
+        'CACHE_TYPE': 'filesystem',
+        'CACHE_DIR': 'cache-directory',
+        'CACHE_THRESHOLD': 200
+    },
+    "auth_config":{
+        "ailab":"ailab_model"
+    }
+}
