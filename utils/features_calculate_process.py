@@ -47,7 +47,8 @@ def bins2woe(
         })
     else:
         cut_bins = [-np.inf,*bins,np.inf]
-        cut_labels = [("-",bins[0])] + [(i,j) for i,j in zip(bins[:-1],bins[1:])] + [(bins[-1],"+")]
+        cut_labels = ["-",*bins,"+"]
+        cut_labels = [(cut_labels[i],cut_labels[i+1]) for i in range(len(cut_labels)-1)]
         df = pd.DataFrame({
             "值域":pd.cut(feature, bins=cut_bins, labels=cut_labels, duplicates='drop'),
             "target":target

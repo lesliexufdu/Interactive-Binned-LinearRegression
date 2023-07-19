@@ -18,9 +18,10 @@ app = Dash(
     external_stylesheets=[dbc.themes.BOOTSTRAP],
     title="Interactive Binned Linear Regression"
 )
+server = app.server
 # cache
 cache = Cache(
-    app.server,
+    server,
     config=CONFIGS["cache_config"]
 )
 # password of App

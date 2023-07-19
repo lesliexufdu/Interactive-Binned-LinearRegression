@@ -46,7 +46,7 @@ def tree_parser(clf):
     tree_info = tree.export_graphviz(clf, out_file=None)
     tree_info = tree_info.split('\n')
     split_values = []
-    pattern = re.compile(r'X\[0\] <= (-?\d+\.?\d*)')
+    pattern = re.compile(r'x\[0\] <= (-?\d+\.?\d*)')
     for i in tree_info:
         mm = pattern.search(i)
         if mm:

@@ -6,7 +6,7 @@
 # Author: Leslie Xu
 # Contact: <lesliexufdu@163.com>
 #
-# Last Modified: 2022-11-14 10:56:50
+# Last Modified: 2023-07-19 03:06:43
 #
 # 项目创建页面的数据处理工具
 # -----------------------------------
@@ -57,7 +57,7 @@ def project_write(df, y, columns, categorical_columns, project_path, df_oot=None
     test_data.to_csv(project_testdata_path, sep="\t", index=None)
     ## 写入项目配置
     project_config_path = os.path.join(project_path,"config.hjson")
-    with open(project_config_path,'w') as f:
+    with open(project_config_path,'w',encoding="utf-8") as f:
         hjson.dump({
             "target":y,
             "train data samples":train_data.shape[0],

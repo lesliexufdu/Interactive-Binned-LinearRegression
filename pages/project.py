@@ -6,7 +6,7 @@
 # Author: Leslie Xu
 # Contact: <lesliexufdu@163.com>
 #
-# Last Modified: 2022-12-22 05:29:28
+# Last Modified: 2023-07-19 03:13:57
 #
 # This page contains the logic of data upload and project config.
 # -----------------------------------
@@ -696,7 +696,7 @@ def create_delete_project(
                 projectname_input_return = ""
                 missing_value_return = 0
                 missing_value_config_return = None
-                split_method_return = "tree"
+                split_method_return = "决策树"
                 split_config_return = None
 
     return (

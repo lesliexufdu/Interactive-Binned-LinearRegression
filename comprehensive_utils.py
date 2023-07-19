@@ -6,7 +6,7 @@
 # Author: Leslie Xu
 # Contact: <lesliexufdu@163.com>
 #
-# Last Modified: 2022-12-06 11:25:23
+# Last Modified: 2023-07-19 11:03:35
 #
 # 综合utils中的模块后的辅助函数
 # -----------------------------------
@@ -27,7 +27,8 @@ def feature_split_woe(project_path, project_config, selected_feature, if_woe=Tru
     df = pd.read_csv(
         train_data_path,
         sep="\t",
-        usecols=[selected_feature,project_config['target']]
+        usecols=[selected_feature,project_config['target']],
+        dtype={selected_feature:str} if if_categorical else None
     )
     split_config = project_config["split config"].get(selected_feature, None)
     split_result = feature_split_bins(

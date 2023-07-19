@@ -6,7 +6,7 @@
 # Author: Leslie Xu
 # Contact: <lesliexufdu@163.com>
 #
-# Last Modified: 2022-12-31 03:16:12
+# Last Modified: 2023-07-19 03:17:33
 #
 # linear regression page
 # -----------------------------------
@@ -255,7 +255,7 @@ def read_project_config(project):
     '''更新project配置'''
     if project:
         project_config_path = os.path.join(project,"config.hjson")
-        with open(project_config_path,"r") as f:
+        with open(project_config_path,"r",encoding="utf-8") as f:
             project_config = hjson.load(f)
         return project_config
     else:
@@ -425,7 +425,7 @@ def initialize_model_config(
     else:
         if model_config is not None:
             model_path = io.StringIO(parse_contents(model_config))
-        with open(os.path.join(model_path,"config.hjson"),"r") as f:
+        with open(os.path.join(model_path,"config.hjson"),"r",encoding="utf-8") as f:
             model_config_return = hjson.load(f)
         model_config_return["used features"] = {
             k:v
@@ -901,7 +901,7 @@ def save_model_config(
             else:
                 model_save_info_return = dbc.Alert("模型被覆盖!", color="danger", is_open=True, duration=4000)
                 models_list = current_model_list
-            with open(os.path.join(model_path,"config.hjson"),'w') as f:
+            with open(os.path.join(model_path,"config.hjson"),'w',encoding="utf-8") as f:
                 hjson.dump(model_config_tosave, f)
             return model_save_info_return,models_list
         else:

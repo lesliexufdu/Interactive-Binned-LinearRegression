@@ -6,7 +6,7 @@
 # Author: Leslie Xu
 # Contact: <lesliexufdu@163.com>
 #
-# Last Modified: 2022-12-07 11:26:22
+# Last Modified: 2023-07-19 11:26:09
 #
 # 输出合适的数据格式
 # -----------------------------------
@@ -19,6 +19,8 @@ import numpy as np
 
 def data_bars_diverging(column, column_max=1, column_min=-1, n_bins=100, color_above='#3D9970', color_below='#FF4136'):
     '''生成条件格式databar'''
+    column_max = np.ceil(column_max*10**6)/10**6
+    column_min = np.floor(column_min*10**6)/10**6
     ranges = [
         (
             (column_max-column_min)*i/n_bins+column_min,
